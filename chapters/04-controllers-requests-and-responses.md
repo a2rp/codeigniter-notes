@@ -18,6 +18,7 @@ Controllers live in `app/Controllers/`, use the `App\Controllers` namespace, and
 namespace App\Controllers;
 
 use App\Models\ArticleModel;
+use CodeIgniter\Http\ResponseInterface;
 
 class Articles extends BaseController
 {
@@ -64,7 +65,7 @@ public function show(int $id): string
     $article = model(ArticleModel::class)->find($id);
 
     if ($article === null) {
-        throw CodeIgniterExceptionsPageNotFoundException::forPageNotFound();
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
     }
 
     return view('articles/show', [
@@ -80,7 +81,7 @@ Use the actual model and view paths in your app. Do not assume that a request pa
 For an API endpoint, use the response object rather than manually setting PHP headers:
 
 ```php
-public function create(): CodeIgniter\HTTP\ResponseInterface
+public function create(): ResponseInterface
 {
     $payload = $this->request->getJSON(true);
 
