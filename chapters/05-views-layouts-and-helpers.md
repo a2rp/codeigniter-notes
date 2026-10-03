@@ -35,6 +35,7 @@ The default `esc()` context is HTML. For values placed inside JavaScript, CSS, o
 A layout contains the page structure that multiple views reuse. Create `app/Views/layouts/main.php`:
 
 ```php
+<?php helper('url'); ?>
 <!doctype html>
 <html lang="en">
 <head>
