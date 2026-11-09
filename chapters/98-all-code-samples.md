@@ -880,6 +880,12 @@ public $globals = [
 ];
 ```
 
+For an application that uses session authentication, change the existing property in `app/Config/Security.php`:
+
+```php
+public string $csrfProtection = 'session';
+```
+
 ### Example 70
 
 ```php

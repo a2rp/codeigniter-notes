@@ -84,7 +84,7 @@ CSRF protection helps prevent another site from causing a visitor's browser to s
 
 ### 18. Which methods does the CSRF filter protect?
 
-CodeIgniter's CSRF filter protects POST, PUT, PATCH, and DELETE requests. Configure it for browser forms that change state and handle external API callbacks with their own verified authentication method.
+CodeIgniter's CSRF filter protects POST, PUT, PATCH, and DELETE requests. Cookie-based CSRF is the default, but the framework warns that it does not prevent same-site attacks. For an application using session authentication, set `Config\Security::$csrfProtection` to `session`. Handle external API callbacks with their own verified authentication method.
 
 ### 19. Why use `old()` in a form?
 

@@ -68,6 +68,14 @@ The array above shows the new entry only. Merge it into the existing aliases rat
 
 Cross-Site Request Forgery tricks a signed-in browser into sending a request the user did not intend. Enable the built-in CSRF filter for browser forms that change data. CSRF checks cover POST, PUT, PATCH, and DELETE requests.
 
+CodeIgniter uses cookie-based CSRF protection by default. For an application that authenticates users with sessions, set the existing `csrfProtection` property in `app/Config/Security.php` to `session`:
+
+```php
+public string $csrfProtection = 'session';
+```
+
+The framework warns that cookie-based CSRF protection does not prevent same-site attacks. Keep the session driver configured for the application and use the session-based CSRF option with session authentication.
+
 In `app/Config/Filters.php`, keep the existing configuration and enable the CSRF filter in the global before list:
 
 ```php
